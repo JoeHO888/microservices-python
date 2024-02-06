@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: gateway-ingress
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
-    #nginx.ingress.kubernetes.io/proxy-max-temp-file-size: "1024m"
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/frontend-entry-points: http
+    traefik.ingress.kubernetes.io/buffering: |
+      maxrequestbodybytes: 31457280   
 spec:
   rules:
     - host: mp3converter.com
